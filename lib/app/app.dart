@@ -1,0 +1,123 @@
+import 'package:rider/ui/bottom_sheets/notice/notice_sheet.dart';
+import 'package:rider/ui/dialogs/info_alert/info_alert_dialog.dart';
+import 'package:rider/ui/views/home/home_view.dart';
+import 'package:rider/ui/views/startup/startup_view.dart';
+import 'package:stacked/stacked_annotations.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:rider/services/database_service.dart';
+import 'package:rider/ui/views/authentication/authentication_view.dart';
+import 'package:rider/ui/views/login/login_view.dart';
+import 'package:rider/ui/views/signup/signup_view.dart';
+import 'package:rider/ui/views/upload_vehicle_details/upload_vehicle_details_view.dart';
+import 'package:rider/ui/views/identity_verification/identity_verification_view.dart';
+import 'package:rider/ui/views/address/address_view.dart';
+import 'package:rider/ui/views/approval/approval_view.dart';
+import 'package:rider/ui/views/map/map_view.dart';
+import 'package:rider/ui/dialogs/incomnigrequest/incomnigrequest_dialog.dart';
+import 'package:rider/services/device_info_service.dart';
+import 'package:rider/services/notification_service.dart';
+import 'package:rider/services/config_service.dart';
+import 'package:rider/services/auth_service.dart';
+import 'package:rider/services/filepicker_service.dart';
+import 'package:rider/services/local_storage_service.dart';
+import 'package:rider/services/api_service.dart';
+import 'package:rider/services/token_interceptor_service.dart';
+import 'package:rider/ui/dialogs/error/error_dialog.dart';
+import 'package:rider/ui/views/email_verification/email_verification_view.dart';
+import 'package:rider/ui/views/no_internet/no_internet_view.dart';
+import 'package:rider/ui/views/forgot_password/forgot_password_view.dart';
+import 'package:rider/ui/views/new_password/new_password_view.dart';
+import 'package:rider/services/location_service.dart';
+import 'package:rider/ui/views/profile/profile_view.dart';
+import 'package:rider/ui/views/account/account_view.dart';
+import 'package:rider/ui/views/change_password/change_password_view.dart';
+import 'package:rider/ui/views/support_help/support_help_view.dart';
+import 'package:rider/ui/views/my_orders/my_orders_view.dart';
+import 'package:rider/ui/views/profile_settings/profile_settings_view.dart';
+import 'package:rider/ui/views/my_documents/my_documents_view.dart';
+import 'package:rider/ui/views/my_vehicles/my_vehicles_view.dart';
+import 'package:rider/ui/views/edit_vehicle_view/edit_vehicle_view_view.dart';
+import 'package:rider/ui/views/edit_address/edit_address_view.dart';
+import 'package:rider/ui/views/job_accept/job_accept_view.dart';
+import 'package:rider/ui/views/ride/ride_view.dart';
+import 'package:rider/ui/views/job_completed/job_completed_view.dart';
+import 'package:rider/ui/views/order_detail/order_detail_view.dart';
+import 'package:rider/ui/views/on_way/on_way_view.dart';
+import 'package:rider/ui/views/specific_order/specific_order_view.dart';
+import 'package:rider/ui/views/earning/earning_view.dart';
+import 'package:rider/ui/views/ratings/ratings_view.dart';
+import 'package:rider/ui/dialogs/account_create/account_create_dialog.dart';
+import 'package:rider/ui/dialogs/not_approved/not_approved_dialog.dart';
+import 'package:rider/ui/dialogs/no_internet/no_internet_dialog.dart';
+import 'package:rider/ui/bottom_sheets/map_navigation_option/map_navigation_option_sheet.dart';
+// @stacked-import
+
+@StackedApp(
+  logger: StackedLogger(),
+  routes: [
+    MaterialRoute(page: HomeView),
+    MaterialRoute(page: StartupView),
+    MaterialRoute(page: AuthenticationView),
+    MaterialRoute(page: LoginView),
+    MaterialRoute(page: SignupView),
+    MaterialRoute(page: UploadVehicleDetailsView),
+    MaterialRoute(page: IdentityVerificationView),
+    MaterialRoute(page: AddressView),
+    MaterialRoute(page: ApprovalView),
+    MaterialRoute(page: MapView),
+    MaterialRoute(page: EmailVerificationView),
+    MaterialRoute(page: NoInternetView),
+    MaterialRoute(page: ForgotPasswordView),
+    MaterialRoute(page: NewPasswordView),
+    MaterialRoute(page: ProfileView),
+    MaterialRoute(page: AccountView),
+    MaterialRoute(page: ChangePasswordView),
+    MaterialRoute(page: SupportHelpView),
+    MaterialRoute(page: MyOrdersView),
+    MaterialRoute(page: ProfileSettingsView),
+    MaterialRoute(page: MyDocumentsView),
+    MaterialRoute(page: MyVehiclesView),
+    MaterialRoute(page: EditVehicleViewView),
+    MaterialRoute(page: EditAddressView),
+    MaterialRoute(page: JobAcceptView),
+    MaterialRoute(page: RideView),
+    MaterialRoute(page: JobCompletedView),
+    MaterialRoute(page: OrderDetailView),
+    MaterialRoute(page: OnWayView),
+    MaterialRoute(page: SpecificOrderView),
+    MaterialRoute(page: EarningView),
+    MaterialRoute(page: RatingsView),
+// @stacked-route
+  ],
+  dependencies: [
+    LazySingleton(classType: BottomSheetService),
+    LazySingleton(classType: DialogService),
+    LazySingleton(classType: NavigationService),
+    LazySingleton(classType: DatabaseService),
+    LazySingleton(classType: DeviceInfoService),
+    LazySingleton(classType: NotificationService),
+    LazySingleton(classType: ConfigService),
+    LazySingleton(classType: AuthService),
+    LazySingleton(classType: FilepickerService),
+    LazySingleton(classType: LocalStorageService),
+    LazySingleton(classType: ApiService),
+    LazySingleton(classType: TokenInterceptorService),
+    LazySingleton(classType: LocationService),
+// @stacked-service
+  ],
+  bottomsheets: [
+    StackedBottomsheet(classType: NoticeSheet),
+    StackedBottomsheet(classType: MapNavigationOptionSheet),
+// @stacked-bottom-sheet
+  ],
+  dialogs: [
+    StackedDialog(classType: InfoAlertDialog),
+    StackedDialog(classType: IncomnigrequestDialog),
+    StackedDialog(classType: ErrorDialog),
+    StackedDialog(classType: AccountCreateDialog),
+    StackedDialog(classType: NotApprovedDialog),
+    StackedDialog(classType: NoInternetDialog),
+// @stacked-dialog
+  ],
+)
+class App {}
