@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:carousel_slider/carousel_controller.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
@@ -26,7 +27,6 @@ class MyVehiclesViewModel extends BaseViewModel {
 
     VehicleResponse res = await _dbService.fetchMyVehicle();
     if (res.success) {
-      //
       if (res.vehicle != null) {
         vehicleObject = res.vehicle!;
         if (vehicleObject.document != null) {
@@ -37,7 +37,7 @@ class MyVehiclesViewModel extends BaseViewModel {
         bannerList.add(vehicleObject.motImage ?? "");
       }
     } else {
-      //show dialog
+      // Handle dialog or error case
     }
 
     setBusy(false);
@@ -46,20 +46,18 @@ class MyVehiclesViewModel extends BaseViewModel {
   PDFViewController? pdfViewController;
   int current = 0;
   int currentPage = 0;
-  onPageChange(index) {
+
+  onPageChange(int index) {
     current = index;
     rebuildUi();
   }
 
-  CarouselController controller = CarouselController();
+  final CarouselSliderController controller = CarouselSliderController(); // Fixed usage
   bool isLoading = false;
   File? pFile;
 
   Future<void> loadDocumentInPdf(String url) async {
-    // setState(() {
     isLoading = true;
-    // });
-    //  var url = 'http://www.pdf995.com/samples/pdf.pdf';
     final response = await http.get(Uri.parse(url));
     final bytes = response.bodyBytes;
     final filename = basename(url);
@@ -74,7 +72,8 @@ class MyVehiclesViewModel extends BaseViewModel {
 
   navigateToVehicleView() async {
     await _navigationService.navigateToEditVehicleViewView(
-        vehicleObject: vehicleObject);
+      vehicleObject: vehicleObject,
+    );
     getDriverLicense();
   }
 

@@ -4,9 +4,9 @@ import 'package:stacked/stacked_annotations.dart';
 class ConfigService {
   final log = getLogger('configService');
   late String _env;
-  final String _devBaseUrl = 'https://cityeats.online/api';
-  final String _testBaseUrl = 'https://cityeats.online/api';
-  final String _prodBaseUrl = 'https://cityeats.online/api';
+  final String _devBaseUrl = 'https://cityeats.uk/api';
+  final String _testBaseUrl = 'https://cityeats.uk/api';
+  final String _prodBaseUrl = 'https://cityeats.uk/api';
   String? _baseUrl;
 
   /// Getters

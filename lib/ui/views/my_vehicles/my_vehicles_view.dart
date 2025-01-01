@@ -34,20 +34,11 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Align(
-              //   alignment: Alignment.center,
-              //   child: NetworkImageWidget(
-              //       height: 150.h,
-              //       width: 150.w,
-              //       url: viewModel.vehicleObject.frontImage ?? ""),
-              // ),
               viewModel.isBusy
                   ? const SpinKitFadingCircle(color: kcPrimaryColor, size: 30)
                   : _bannerSlider(viewModel, context),
-
               50.verticalSpace,
               Container(
-                // height: 120.h,
                 width: screenWidth(context),
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                 decoration: BoxDecoration(
@@ -67,25 +58,14 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "MAKE",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                          Text("MAKE", style: Theme.of(context).textTheme.bodyMedium),
                           5.verticalSpace,
-                          Text(
-                            "MODEL",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                          Text("MODEL", style: Theme.of(context).textTheme.bodyMedium),
                           5.verticalSpace,
-                          Text(
-                            "YEAR",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                          Text("YEAR", style: Theme.of(context).textTheme.bodyMedium),
                           5.verticalSpace,
-                          Text(
-                            "LICENSE PLATE",
-                            style: Theme.of(context).textTheme.bodyMedium,
-                          ),
+                          Text("LICENSE PLATE",
+                              style: Theme.of(context).textTheme.bodyMedium),
                         ],
                       ),
                     ),
@@ -119,8 +99,6 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
                   ],
                 ),
               ),
-
-              ///
               Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(
@@ -154,15 +132,6 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
                           decoration: TextDecoration.underline),
                     )),
               ),
-              // Text(
-              //   "Insurance Documents",
-              //   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-              //         color: kcPrimaryColor,
-              //       ),
-              // ),
-              // 10.verticalSpace,
-
-              ///
               InkWell(
                 onTap: () {
                   if (viewModel.pFile != null) {
@@ -187,12 +156,7 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
                             swipeHorizontal: true,
                             autoSpacing: false,
                             pageFling: false,
-                            onRender: (pages) {
-                              // setState(() {
-                              //   pages = _pages;
-                              //   isReady = true;
-                              // });
-                            },
+                            onRender: (pages) {},
                             onError: (error) {
                               print(error.toString());
                             },
@@ -203,9 +167,6 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
                                 (PDFViewController pdfViewController) {
                               viewModel.pdfViewController = pdfViewController;
                             },
-                            // onPageChanged: (int page, int total) {
-                            //   // print('page change: $page/$total');
-                            // },
                           ),
                         ),
                 ),
@@ -222,7 +183,6 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
       items: viewModel.bannerList.map((banner) {
         return Builder(
           builder: (BuildContext context) {
-            // final res = viewModel.findRestaurantById(banner.restaurantId);
             return InkWell(
                 onTap: () {
                   if (viewModel.pFile != null) {
@@ -233,21 +193,22 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
           },
         );
       }).toList(),
-      carouselController: viewModel.controller,
+      carouselController: viewModel.controller, // Updated type
       options: CarouselOptions(
-          autoPlay: true,
-          height: 160.h,
-          enlargeCenterPage: true,
-          aspectRatio: 16 / 9,
-          autoPlayCurve: Curves.fastOutSlowIn,
-          enableInfiniteScroll: false,
-          autoPlayAnimationDuration: const Duration(milliseconds: 800),
-          viewportFraction: 0.8,
-          reverse: true,
-          autoPlayInterval: 6.seconds,
-          onPageChanged: (index, reason) {
-            viewModel.onPageChange(index);
-          }),
+        autoPlay: true,
+        height: 160.h,
+        enlargeCenterPage: true,
+        aspectRatio: 16 / 9,
+        autoPlayCurve: Curves.fastOutSlowIn,
+        enableInfiniteScroll: false,
+        autoPlayAnimationDuration: const Duration(milliseconds: 800),
+        viewportFraction: 0.8,
+        reverse: true,
+        autoPlayInterval: const Duration(seconds: 6),
+        onPageChanged: (index, reason) {
+          viewModel.onPageChange(index);
+        },
+      ),
     );
   }
 
@@ -256,25 +217,11 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
       margin: EdgeInsets.symmetric(horizontal: 5.w),
       width: screenWidth(context),
       child: ClipRRect(
-          borderRadius:
-              BorderRadius.circular(10.r), // Adjust the radius as needed
+          borderRadius: BorderRadius.circular(10.r),
           child: Image.network(
             imageUrl,
             fit: BoxFit.fill,
-            loadingBuilder: (BuildContext context, Widget child,
-                ImageChunkEvent? loadingProgress) {
-              if (loadingProgress == null) {
-                // _isLoading = false;
-                return child;
-              } else {
-                // _isLoading = true;
-                return const SpinKitFadingCircle(
-                    color: kcPrimaryColor, size: 30);
-              }
-            },
-          )
-          // NetworkImageWidget(url: imageUrl),
-          ),
+          )),
     );
   }
 
@@ -294,29 +241,20 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
           ),
           body: Center(
             child: PDFView(
-              filePath:
-                  viewModel.pFile?.path, // Replace with your PDF file path
+              filePath: viewModel.pFile?.path,
               onPageChanged: (int? page, int? total) {
                 print('page change: $page/$total');
               },
-              onViewCreated: (PDFViewController vc) {
-                print('controller initialized');
-              },
               onRender: (int? pages) {
                 print('rendered $pages pages');
-              },
-              onError: (error) {
-                print(error.toString());
               },
             ),
           ),
         ),
       ),
     ).then((_) {
-      // setState(() {
       viewModel.isFullScreen = true;
       viewModel.rebuildUi;
-      // });
     });
   }
 
@@ -327,15 +265,12 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
         builder: (context) => Scaffold(
           body: Center(
               child: SizedBox(
-            // height: 400.h,
             width: screenWidth(context),
             child: NetworkImageWidget(
               url: imageFile,
               fit: BoxFit.contain,
             ),
-          )
-              // Image.network(imageFile, fit: BoxFit.cover)
-              ),
+          )),
         ),
       ),
     );

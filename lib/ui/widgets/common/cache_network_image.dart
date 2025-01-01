@@ -49,45 +49,39 @@ class NetworkImageWidget extends StatelessWidget {
               bottomLeft: Radius.circular(bottomLeftRadius ?? 0),
               bottomRight: Radius.circular(bottomRightRadius ?? 0),
             ),
-            child: url.isEmpty
-                ? Image.asset("$kcStaticImagesPath/place_pro.jpeg",
-                    fit: BoxFit.cover)
-                : CachedNetworkImage(
-                    fit: BoxFit.cover,
-                    imageUrl: url,
-                    //  url.isEmpty
-                    //     ? "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                    //     :
-                    height: height,
-                    width: width,
-                    errorListener: (value) => print(value),
-                    progressIndicatorBuilder: (context, url, progress) =>
-                        const SpinKitFadingCircle(
-                            color: kcPrimaryColor, size: 60),
-                    //   SizedBox(
-                    // height: 30.h,
-                    // width: 30.w,
-                    // // margin: EdgeInsets.only(top: 100.h, bottom: 100.h),
-                    // child: CircularProgressIndicator(
-                    //   // value: progress.progress,
-                    //   color: kcPrimaryColor,
-                    // ),
-                    // ),
-                    imageBuilder: (context, imageProvider) => Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: imageProvider,
-                                fit: fit ?? BoxFit.cover))),
-                    placeholder: (context, url) => Image.asset(
-                        height: height,
-                        width: width,
-                        "$kcStaticImagesPath/place_pro.jpeg",
-                        fit: BoxFit.cover),
-                    errorWidget: (context, url, error) => Image.asset(
-                        "$kcStaticImagesPath/place_pro.jpeg",
-                        fit: BoxFit.cover),
-                  ),
-          );
+            child: Image.asset("$kcStaticImagesPath/place_pro.jpeg",
+                fit: BoxFit.cover)
+
+            // CachedNetworkImage(
+            //     imageUrl:
+            //         "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            //     fit: fit ?? BoxFit.cover,
+            //     height: height,
+            //     width: width,
+            //     placeholder: (context, url) => SizedBox(
+            //       height: height,
+            //       width: width,
+            //       child: const SpinKitFadingCircle(
+            //         color: kcPrimaryColor,
+            //         size: 60,
+            //       ),
+            //     ),
+            //     errorWidget: (context, url, error) => Image.asset(
+            //       "$kcStaticImagesPath/place_pro.jpeg",
+            //       fit: BoxFit.cover,
+            //       height: height,
+            //       width: width,
+            //     ),
+            //     imageBuilder: (context, imageProvider) => Container(
+            //       decoration: BoxDecoration(
+            //         image: DecorationImage(
+            //           image: imageProvider,
+            //           fit: fit ?? BoxFit.cover,
+            //         ),
+            //       ),
+            //     ),
+            //   )
+            );
     // .animate(delay: 200.ms).moveX().fadeIn(duration: 300.ms);
   }
 }

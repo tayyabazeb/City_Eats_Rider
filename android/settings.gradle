@@ -8,4 +8,9 @@ localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
 
 def flutterSdkPath = properties.getProperty("flutter.sdk")
 assert flutterSdkPath != null, "flutter.sdk not set in local.properties"
+
+//Apply Flutter plugin loader for compatibility with the latest Flutter version
 apply from: "$flutterSdkPath/packages/flutter_tools/gradle/app_plugin_loader.gradle"
+
+//Ensure Gradle 8.x compatibility
+rootProject.name = 'rider'
