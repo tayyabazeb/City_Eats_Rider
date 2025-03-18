@@ -80,6 +80,8 @@ class LoginViewModel extends FormViewModel {
           await _authService.loginWithEmailAndPassword(loginObj);
       if (response.success) {
         chooseRoute();
+        await subscribeToRiderTopic();
+
         showSnackBar(context,
             message:
                 "Welcome Back! ${response.authResponseModel?.user?.name ?? ""}");
@@ -91,6 +93,9 @@ class LoginViewModel extends FormViewModel {
     }
     setBusy(false);
   }
+  Future<void> subscribeToRiderTopic() async {
+  await FirebaseMessaging.instance.subscribeToTopic("rider");
+}
 
   generateOTP() async {
     final response = await _dbService.generateOTP(loginObj.email ?? "");

@@ -27,6 +27,7 @@ Future<void> main() async {
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
+  await subscribeToRiderTopic();
   runApp(const MainApp());
 }
 
@@ -40,6 +41,9 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   player.play(AssetSource(alarmAudioPath));
   log.i('Handling a background message: ${message.messageId}');
   log.i('Notification Message is: ${message.toMap()}');
+}
+Future<void> subscribeToRiderTopic() async {
+  await FirebaseMessaging.instance.subscribeToTopic("rider");
 }
 
 class MainApp extends StatelessWidget {
