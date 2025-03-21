@@ -85,7 +85,7 @@ class EditVehicleViewViewModel extends FormViewModel {
   /// Get image from Gallery
   getDocumentFile() async {
     File? file = await _filePickerService.pickPdfFile();
-    print(file);
+   
     if (file != null) {
       updateChangesBool();
     }

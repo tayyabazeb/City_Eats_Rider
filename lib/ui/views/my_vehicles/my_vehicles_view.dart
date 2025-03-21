@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -9,6 +8,7 @@ import 'package:rider/ui/common/ui_helpers.dart';
 import 'package:rider/ui/dialogs/progress_indicator/progress.dart';
 import 'package:rider/ui/widgets/common/cache_network_image.dart';
 import 'package:stacked/stacked.dart';
+
 import 'my_vehicles_viewmodel.dart';
 
 class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
@@ -158,10 +158,10 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
                             pageFling: false,
                             onRender: (pages) {},
                             onError: (error) {
-                              print(error.toString());
+                             
                             },
                             onPageError: (page, error) {
-                              print('$page: ${error.toString()}');
+                            
                             },
                             onViewCreated:
                                 (PDFViewController pdfViewController) {
@@ -243,10 +243,10 @@ class MyVehiclesView extends StackedView<MyVehiclesViewModel> {
             child: PDFView(
               filePath: viewModel.pFile?.path,
               onPageChanged: (int? page, int? total) {
-                print('page change: $page/$total');
+              
               },
               onRender: (int? pages) {
-                print('rendered $pages pages');
+               
               },
             ),
           ),

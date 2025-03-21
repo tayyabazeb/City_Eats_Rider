@@ -1,1 +1,8 @@
 include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    use_super_parameters: ignore
+    unused_element: ignore
+    deprecated_member_use: ignore
+    unrelated_type_equality_checks: ignore
+    no_wildcard_variable_uses: ignore

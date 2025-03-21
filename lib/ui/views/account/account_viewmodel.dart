@@ -3,7 +3,6 @@ import 'package:rider/app/app.locator.dart';
 import 'package:rider/app/app.logger.dart';
 import 'package:rider/app/app.router.dart';
 import 'package:rider/models/user_profile.dart';
-import 'package:rider/responses/base_responses/request_response.dart';
 import 'package:rider/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';

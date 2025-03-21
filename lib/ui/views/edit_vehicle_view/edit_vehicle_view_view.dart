@@ -408,9 +408,9 @@ class EditVehicleViewView extends StackedView<EditVehicleViewViewModel>
                           IconButton(
                             icon: const Icon(Icons.info),
                             onPressed: () {
-                              final RenderBox overlay = Overlay.of(context)
-                                  .context
-                                  .findRenderObject()! as RenderBox;
+                              // final RenderBox overlay = Overlay.of(context)
+                              //     .context
+                              //     .findRenderObject()! as RenderBox;
                               final RenderBox button =
                                   context.findRenderObject()! as RenderBox;
                               final Offset targetGlobal =
@@ -442,14 +442,13 @@ class EditVehicleViewView extends StackedView<EditVehicleViewViewModel>
                           //
                           final res =
                               await _showPdfFullScreen(context, documentFile);
-                          print("res");
-                          print(res);
+                        
                           if (res ?? false) {
                             viewModel.updateInsuranceDocumentFile(documentFile);
                             // viewModel.vehicleDetails.documents = documentFile;
                             // viewModel.rebuildUi();
                           }
-                          print(viewModel.vehicleDetails.documents);
+                         
                         }
                       },
                       child: viewModel.vehicleDetails.documents != null

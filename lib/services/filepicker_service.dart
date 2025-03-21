@@ -97,7 +97,7 @@ class FilepickerService {
         return null;
       }
     } catch (e) {
-      print('Error picking PDF file: $e');
+    
       return null;
     }
   }

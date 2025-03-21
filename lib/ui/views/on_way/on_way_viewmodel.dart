@@ -20,7 +20,7 @@ class OnWayViewModel extends BaseViewModel {
     if (await canLaunchUrl(Uri.parse(uri))) {
       await launchUrl(Uri.parse(uri));
     } else {
-      print('Could not launch $uri');
+   
     }
   }
 
@@ -30,7 +30,7 @@ class OnWayViewModel extends BaseViewModel {
     if (await canLaunchUrl(Uri.parse(uri))) {
       await launchUrl(Uri.parse(uri));
     } else {
-      print('Could not launch $uri');
+    
     }
   }
 

@@ -63,7 +63,7 @@ class IdentityVerificationViewModel extends FormViewModel {
   /// Get image from Gallery
   getImageFromGallery(BuildContext context) async {
     XFile? pickedFile = await _filePickerService.pickSingleImage();
-    print(pickedFile?.path);
+   
     return pickedFile;
   }
 

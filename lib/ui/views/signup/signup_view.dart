@@ -258,7 +258,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
           noSpace: true,
           // textInputType: TextInputType.name,
           onEditingComplete: () {
-            print("complete");
+          
             cPasswordFocusNode.requestFocus();
           },
           onChanged: (val) {
@@ -298,7 +298,7 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
           focusNode: cPasswordFocusNode,
           noSpace: true,
           onEditingComplete: () {
-            print("complete");
+         
             cPasswordFocusNode.unfocus();
           },
           suffix: IconButton(
@@ -358,7 +358,9 @@ class SignupView extends StackedView<SignupViewModel> with $SignupView {
             viewModel.hasEmail &&
             viewModel.hasFirstName &&
             viewModel.hasPassword &&
-            viewModel.hasPhone) viewModel.requestSignUp();
+            viewModel.hasPhone) {
+          viewModel.requestSignUp();
+        }
       },
     );
   }

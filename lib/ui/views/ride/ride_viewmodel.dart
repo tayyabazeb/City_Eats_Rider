@@ -25,7 +25,7 @@ class RideViewModel extends BaseViewModel {
   RideStatus rideStatus = RideStatus.onWay;
   String statusText = "On the way to Pickup...";
   String buttonText = "I have Arrived";
-  String callButtonText = "Call Sender";
+  String callButtonText = "Call Restaurant";
 
   List<Marker> markerList = [];
   LatLngBounds? _bounds;
@@ -281,7 +281,7 @@ class RideViewModel extends BaseViewModel {
     if (await canLaunchUrl(Uri.parse(uri))) {
       await launchUrl(Uri.parse(uri));
     } else {
-      print('Could not launch $uri');
+    
     }
   }
 
@@ -293,7 +293,6 @@ class RideViewModel extends BaseViewModel {
     if (await canLaunchUrl(Uri.parse(uri))) {
       await launchUrl(Uri.parse(uri));
     } else {
-      print('Could not launch $uri');
     }
   }
 

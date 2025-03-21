@@ -252,16 +252,14 @@ class UploadVehicleDetailsView
                                 (element) => element.id.toString() == newValue);
                         viewModel.selectedType =
                             viewModel.vehicleTypeResponse?.body?[index ?? 0];
-                        print(newValue);
+                     
                       },
                     ),
                     17.horizontalSpace,
                     IconButton(
                       icon: const Icon(Icons.info),
                       onPressed: () {
-                        final RenderBox overlay = Overlay.of(context)
-                            .context
-                            .findRenderObject()! as RenderBox;
+                       
                         final RenderBox button =
                             context.findRenderObject()! as RenderBox;
                         final Offset targetGlobal =
@@ -300,7 +298,7 @@ class UploadVehicleDetailsView
                     if (res ?? false) {
                       viewModel.updateInsuranceDocumentFile(documentFile);
                     }
-                    print(viewModel.vehicleDetails.documents);
+                   
                   }
                 },
                 child: Container(
@@ -336,10 +334,10 @@ class UploadVehicleDetailsView
                                 // _controller.complete(pdfViewController);
                               },
                               onLinkHandler: (String? uri) {
-                                print('goto uri: $uri');
+                              
                               },
                               onPageChanged: (int? page, int? total) {
-                                print('page change: $page/$total');
+                               
                                 // setState(() {
                                 // currentPage = page;
                                 // });
@@ -445,7 +443,7 @@ class UploadVehicleDetailsView
               CustomElevatedButton(
                   onPressed: () {
                     // print(viewModel.vehicleDetails.documents);
-                    print(viewModel.isFormValid);
+                   
                     //
                     viewModel.buttonClicked();
                     if ((viewModel.vehicleDetails.v5Image != null &&
@@ -506,8 +504,7 @@ class UploadVehicleDetailsView
     } else if (left + tooltipSize.width > screenSize.width) {
       left = screenSize.width - tooltipSize.width;
     }
-    print("top ====> $top");
-    print("left ====> $left");
+   
 
     final OverlayEntry entry = OverlayEntry(
       maintainState: true,
@@ -547,7 +544,7 @@ class UploadVehicleDetailsView
     );
 
     Overlay.of(context).insert(entry);
-    print("$entry");
+  
 
     Future.delayed(const Duration(seconds: 3), () {
       entry.remove();

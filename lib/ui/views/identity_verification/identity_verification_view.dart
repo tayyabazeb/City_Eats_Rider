@@ -251,7 +251,7 @@ class IdentityVerificationView
                           issueDateFocusNode.canRequestFocus = false;
                           issueDateFocusNode.unfocus();
                           String? date = await selectDateOfBirth(context);
-                          print(date);
+                      
                           if (date != null) {
                             viewModel.licenseBody.issueDate = date;
                             issueDateController.text = date;
@@ -288,7 +288,7 @@ class IdentityVerificationView
                           expiryFocusNode.canRequestFocus = false;
                           expiryFocusNode.unfocus();
                           String? date = await selectDateOfBirth(context);
-                          print(date);
+                        
                           if (date != null) {
                             viewModel.licenseBody.expiryDate = date;
                             expiryController.text = date;
@@ -362,7 +362,7 @@ class IdentityVerificationView
               40.verticalSpace,
               CustomElevatedButton(
                   onPressed: () {
-                    print(viewModel.licenseBody.toJson());
+                  
                     viewModel.buttonClicked();
                     if (document == null) {
                       if (viewModel.licenseBody.frontImage != null &&

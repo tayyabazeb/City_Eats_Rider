@@ -34,8 +34,7 @@ class RatingsViewModel extends BaseViewModel {
   void getAverageRatings() {
     count = 0;
     for (var element in ratingList) {
-      print(element.riderReview?.reviewRemarks);
-      print(element.riderReview?.reviewStar);
+     
       //
       if ((element.riderReview?.reviewStar ?? 0) != 0) {
         count++;

@@ -79,8 +79,7 @@ class LocationService {
 
     double distance = calculateDistance(location1, location2);
 
-    print(
-        'Distance between the two locations: ${distance.toStringAsFixed(2)} km');
+   
     return distance;
   }
 

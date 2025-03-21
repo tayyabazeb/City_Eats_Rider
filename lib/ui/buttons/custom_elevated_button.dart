@@ -8,6 +8,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Size? size;
   final Color? backgroundColor;
   final TextStyle? textStyle;
+ 
   final VoidCallback? onPressed;
   final Widget? child;
   final BorderRadius? borderRadius;
@@ -31,18 +32,21 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        minimumSize: size ?? Size(double.infinity, 48.h),
+        minimumSize: size,
+        padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           side: side ?? const BorderSide(color: Colors.transparent),
           borderRadius: borderRadius ?? BorderRadius.circular(8.r),
         ),
         backgroundColor: backgroundColor ?? kcPrimaryColor,
       ),
-      child: child ??
-          Text(
-            text,
-            style: textStyle ?? Theme.of(context).textTheme.displaySmall,
-          ),
+      child: Center(
+        child: child ??
+            Text(
+              text,
+              style: textStyle ?? Theme.of(context).textTheme.displaySmall,
+            ),
+      ),
     )
         // .animate().fadeIn(duration: 800.ms).scale().then(delay: 400.ms)
         ;

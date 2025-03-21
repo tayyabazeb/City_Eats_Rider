@@ -1,6 +1,6 @@
 import 'dart:io';
+
 import 'package:carousel_slider/carousel_controller.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
@@ -8,8 +8,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:rider/app/app.locator.dart';
 import 'package:rider/app/app.router.dart';
 import 'package:rider/responses/vehicles_response.dart';
-import 'package:stacked/stacked.dart';
 import 'package:rider/services/database_service.dart';
+import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class MyVehiclesViewModel extends BaseViewModel {

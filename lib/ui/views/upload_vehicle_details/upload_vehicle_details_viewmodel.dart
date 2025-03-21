@@ -41,7 +41,7 @@ class UploadVehicleDetailsViewModel extends FormViewModel {
   /// Get image from Gallery
   getDocumentFile() async {
     File? documentFile = await _filePickerService.pickPdfFile();
-    print(documentFile);
+    
     return documentFile;
   }
 

@@ -39,7 +39,7 @@ class HomeViewModel extends BaseViewModel {
     isOnline == newValue;
     rebuildUi();
     await toggleOnlineOffline();
-    print(isOnline);
+   
   }
 
   askNotificationPermissions() async {
@@ -104,8 +104,7 @@ class HomeViewModel extends BaseViewModel {
   double ratings = 0;
 
   Future<void> getHomeData() async {
-    print(status);
-    setBusy(true);
+   
     final res = await _dbService.getHomeData();
     if (res.success) {
       activeOrders = res.data['body']['active_orders'] ?? 0;

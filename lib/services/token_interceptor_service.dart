@@ -39,7 +39,7 @@ class TokenInterceptorService extends Interceptor {
     if (err.message != null) {
       if (err.message!.toLowerCase().contains("timeOut")) {
         // showSnackBar(message: "");
-        print("timeout");
+       
       }
     }
     handler.resolve(

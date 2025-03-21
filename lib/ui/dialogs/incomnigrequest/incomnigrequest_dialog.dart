@@ -207,7 +207,6 @@ class IncomnigrequestDialog extends StackedView<IncomnigrequestDialogModel> {
                       backgroundColor: kcPrimaryColor,
                     ),
                     onPressed: () async {
-                      print(order.toJson());
                       //
                       // accept api
                       ///

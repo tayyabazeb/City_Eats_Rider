@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:rider/app/app.dialogs.dart';
 import 'package:rider/app/app.locator.dart';
 import 'package:rider/app/app.logger.dart';
@@ -73,7 +74,7 @@ class LoginViewModel extends FormViewModel {
 
   ///login (email and password)
   loginWithEmailAndPassword() async {
-    print(loginObj.toJson());
+   
     setBusy(true);
     try {
       AuthResponse response =

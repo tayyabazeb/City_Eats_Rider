@@ -143,7 +143,7 @@ class HomeView extends StackedView<HomeViewModel> {
             body: RefreshIndicator(
               color: kcPrimaryColor,
               onRefresh: () async {
-                print("refresh");
+              
                 viewModel.getHomeData();
                 Future.delayed(const Duration(seconds: 3), (() => true));
               },
@@ -379,8 +379,7 @@ class _MySwitchState extends State<MySwitch> {
 
   @override
   void initState() {
-    print("widget.switchValue");
-    print(widget.switchValue);
+   
     _switchValue = widget.viewModel.isOnline;
     super.initState();
   }
